@@ -17,7 +17,6 @@ class Chatbubbles extends StatelessWidget {
   final Message message;
   @override
   Widget build(BuildContext context) {
-    
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Align(
@@ -32,7 +31,7 @@ class Chatbubbles extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 32, horizontal: 32),
             child: Text(
-              message.message!,
+              message.messages ?? "",
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 18,
@@ -51,7 +50,7 @@ class Chatbubbles_freind extends StatelessWidget {
     Key? key,
     required this.message,
   }) : super(key: key);
- final Message message;
+  final Message message;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -68,7 +67,7 @@ class Chatbubbles_freind extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 32, horizontal: 32),
             child: Text(
-              message.message!,
+              message.messages ?? "",
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 18,

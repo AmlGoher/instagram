@@ -15,8 +15,8 @@ class _ResponsiveState extends State<Responsive> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (BuildContext, BoxConstraints) {
-        if (BoxConstraints.maxWidth > 600) {
+      builder: (buildContext, boxConstraints) {
+        if (boxConstraints.maxWidth > 600) {
           return const WebDesign();
         } else {
          return  const    MobilDesign();

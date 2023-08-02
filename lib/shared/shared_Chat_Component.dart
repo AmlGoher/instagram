@@ -8,17 +8,21 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:instagram/shared/Colors.dart';
 
-class Chat_Component extends StatelessWidget {
-  const Chat_Component({super.key});
+import '../Features/authentication/data/model/user_model.dart';
 
+class Chat_Component extends StatelessWidget {
+  Chat_Component({super.key});
+  final UserModel user = UserModel(id: "");
   @override
   Widget build(BuildContext context) {
-    // final Object? passedemail = ModalRoute.of(context)!.settings.arguments;
+    final Object? passedemail = ModalRoute.of(context)!.settings.arguments;
+
     return Column(
       children: [
         GestureDetector(
           onTap: () {
-            Navigator.pushReplacementNamed(context, "chat_bubble_page",);
+            Navigator.pushReplacementNamed(context, "chat_bubble_page",
+                arguments: passedemail);
           },
           child: Container(
               margin: const EdgeInsets.symmetric(vertical: 8),
@@ -30,9 +34,9 @@ class Chat_Component extends StatelessWidget {
                     width: 80,
                     margin:
                         const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage("assets/images/post1.jfif"),
+                          image: AssetImage("${user.photoUrl}"),
                           fit: BoxFit.cover),
                       shape: BoxShape.circle,
                     ),
@@ -46,7 +50,7 @@ class Chat_Component extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          "Aml Gohar",
+                          "${user.userName}",
                           textAlign: TextAlign.start,
                           style: TextStyle(
                             fontSize: 24,

@@ -3,9 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/shared/Colors.dart';
 
+import '../Features/authentication/data/model/user_model.dart';
+
 class CircleAvatarwidget extends StatelessWidget {
-  String circleProfileLink;
-  CircleAvatarwidget({super.key, required this.circleProfileLink});
+  final String circleProfileLink;
+  const CircleAvatarwidget({super.key, required this.circleProfileLink});
 
   @override
   Widget build(BuildContext context) {
@@ -42,83 +44,73 @@ class PostWidget extends StatelessWidget {
         SizedBox(
           height: 8,
         ),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [  Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                CircleAvatarwidget(
-                  circleProfileLink: profileimage,
-                ),
-                SizedBox(
-                  width: 18,
-                ),
-                Column(
-                  // ignore: prefer_const_literals_to_create_immutables
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
                   children: [
-                    Text(
-                      puplishername,
-                      style: TextStyle(fontSize: 19, color: primaryColor),
+                    CircleAvatarwidget(
+                      circleProfileLink: profileimage,
                     ),
-                    Text(
-                      "${isSponserd?"Sponserd":"NotSponserd"} ",
-                      style: TextStyle(fontSize: 14, color: primaryColor),
+                    SizedBox(
+                      width: 18,
+                    ),
+                    Column(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        Text(
+                          puplishername,
+                          style: TextStyle(fontSize: 19, color: primaryColor),
+                        ),
+                        Text(
+                          "${isSponserd ? "Sponserd" : "NotSponserd"} ",
+                          style: TextStyle(fontSize: 14, color: primaryColor),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-               
-              
-              ],
-            ),
-            
+              ),
+              Icon(
+                Icons.more_horiz,
+                color: primaryColor,
+                size: 31,
+              )
+            ],
           ),
-            Icon(
-                  Icons.more_horiz,
-                  color: primaryColor,
-                  size: 31,
-                )],),
-      ),
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        ),
         Image.asset(postimage),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
-                
-                
-                children: [            IconButton(
-                icon: Icon(Icons.favorite_border_outlined, size: 35),
-                onPressed: () {},
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.favorite_border_outlined, size: 35),
+                    onPressed: () {},
+                  ),
+                  SizedBox(
+                    width: 3,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.wechat_rounded, size: 35),
+                    onPressed: () {},
+                  ),
+                  SizedBox(
+                    width: 3,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.near_me_outlined, size: 35),
+                    onPressed: () {},
+                  ),
+                ],
               ),
-              SizedBox(
-                width: 3,
-              ),
-              IconButton(
-                icon: Icon(Icons.wechat_rounded, size: 35),
-                onPressed: () {},
-              ),
-              SizedBox(
-                width: 3,
-              ),
-              IconButton(
-                icon: Icon(Icons.near_me_outlined, size: 35),
-                onPressed: () {},
-              ),
-
-],),
               IconButton(
                 icon: Icon(Icons.bookmark_border_sharp, size: 35),
                 onPressed: () {},
@@ -166,3 +158,12 @@ class PostWidget extends StatelessWidget {
     );
   }
 }
+
+
+// // import 'package:authentication_repository/authentication_repository.dart';
+// // import 'package:cache/cache.dart';
+// // import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+// // import 'package:flutter/foundation.dart' show kIsWeb;
+// // import 'package:google_sign_in/google_sign_in.dart';
+// // import 'package:meta/meta.dart';
+

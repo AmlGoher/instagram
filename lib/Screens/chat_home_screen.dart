@@ -1,15 +1,14 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:instagram/shared/shared_Chat_Component.dart';
 
-class chat_home_screen extends StatelessWidget {
-  const chat_home_screen({super.key});
+class ChatHomeScreen extends StatelessWidget {
+  const ChatHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    
     return SafeArea(child: Scaffold(
       appBar: AppBar(title:   Text(
                   "Chat",textAlign: TextAlign.left,
