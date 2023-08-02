@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(),
         title: 'instagram',
-        home: SplashScreen(),
+        //home: SplashScreen(),
         
         // StreamBuilder(
         //   stream: FirebaseAuth.instance.authStateChanges(),
@@ -74,12 +74,13 @@ class MyApp extends StatelessWidget {
           // When navigating to the "/" route, build the FirstScreen widget.
           //'/': (context) => +const Responsive(),
           // When navigating to the "/second" route, build the SecondScreen widget.
-          'Home': (context) => const Home(),
-          "HomeViewOrAuthView":(context)=>const HomeViewOrAuthView(),
-          'login': (context) => LoginScreen(),
-          'signup': (context) => Signup(),
-          "chat_home_screen": (context) => const ChatHomeScreen(),
-          "chat_bubble_page": (context) => const ChatBubblePage()
+          '/': (context) => SplashScreen(),
+          '/Home': (context) => const Home(),
+          "/HomeViewOrAuthView":(context)=>const HomeViewOrAuthView(),
+          '/login': (context) => LoginScreen(),
+          '/signup': (context) => Signup(),
+          "/chat_home_screen": (context) => const ChatHomeScreen(),
+          "/chat_bubble_page": (context) => const ChatBubblePage()
         },
         //  Responsive(),
       ),

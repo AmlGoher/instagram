@@ -35,7 +35,9 @@ class LoginScreen extends StatelessWidget {
         } else if (state is SucceededAuthState) {
           // to get All old message once open the App
           BlocProvider.of<ChatBubbleScreenCubit>(context).receiveMessage();
-          Navigator.pushReplacementNamed(context, "HomeViewOrAuthView", arguments: _emailController.text);
+
+          //Navigator.pushReplacementNamed(context, "HomeViewOrAuthView", arguments: _emailController.text);
+          Navigator.pushReplacementNamed(context, "/Home", arguments: _emailController.text);
         } else if (state is ErrorAuthState) {
           SnackBarMessage()
               .showErrorSnackBar(message: state.message, context: context);
