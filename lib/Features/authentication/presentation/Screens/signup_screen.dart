@@ -7,9 +7,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:instagram/Features/authentication/domain/entities/user.dart';
+import 'package:instagram/core/constants/route_constants.dart';
 import 'package:instagram/shared/Colors.dart';
 import 'package:instagram/shared/sharedTextFeild.dart';
 
+import '../../../../core/colors/constatnt_color.dart';
 import '../../../../shared/snakebar.dart';
 import '../Controller/bloc/auth_bloc.dart';
 
@@ -37,7 +39,7 @@ class Signup extends StatelessWidget {
         } else if (state is SucceededAuthState) {
           Navigator.pushReplacementNamed(
             context,
-            "login",
+            RoutesConstants.kLoginScreen,
           );
         } else if (state is ErrorAuthState) {
           SnackBarMessage()
@@ -81,7 +83,7 @@ class Signup extends StatelessWidget {
                                         "Sign up to see photos and videos from your friends.",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                          color: textColor,
+                                          color: ConstantColors.kTextColor,
                                           fontSize: 19,
                                           fontWeight: FontWeight.bold,
                                         )),
@@ -307,7 +309,7 @@ class Signup extends StatelessWidget {
                                           text:
                                               "People who use our service may have uploaded your contact information to Instagram. ",
                                           style: const TextStyle(
-                                            color: textColor,
+                                            color: ConstantColors.kTextColor,
                                             fontSize: 14,
                                           ),
                                           children: <TextSpan>[
@@ -330,7 +332,8 @@ class Signup extends StatelessWidget {
                                           text:
                                               "By signing up, you agree to our ",
                                           style: const TextStyle(
-                                            color: textColor,
+                                            color: ConstantColors.kTextColor
+                                            ,
                                             fontSize: 14,
                                           ),
                                           children: <TextSpan>[
@@ -345,7 +348,7 @@ class Signup extends StatelessWidget {
                                             const TextSpan(
                                               text: ',',
                                               style: TextStyle(
-                                                color: textColor,
+                                                color: ConstantColors.kTextColor,
                                                 fontSize: 14,
                                               ),
                                             ),
@@ -360,7 +363,7 @@ class Signup extends StatelessWidget {
                                             const TextSpan(
                                               text: 'and',
                                               style: TextStyle(
-                                                color: textColor,
+                                                color: ConstantColors.kTextColor,
                                                 fontSize: 14,
                                               ),
                                             ),
@@ -437,7 +440,7 @@ class Signup extends StatelessWidget {
                               text: TextSpan(
                                 text: "Have an account?",
                                 style: const TextStyle(
-                                  color: mobileBackgroundColor,
+                                  color: ConstantColors.mobileBackgroundColor,
                                   fontSize: 15,
                                 ),
                                 children: <TextSpan>[
@@ -449,7 +452,7 @@ class Signup extends StatelessWidget {
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () {
                                           Navigator.pushReplacementNamed(
-                                              context, "login");
+                                              context,RoutesConstants.kLoginScreen);
                                         }),
                                 ],
                               ),

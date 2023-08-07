@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/shared/Colors.dart';
 
-class statusclass extends StatelessWidget {
+import '../core/colors/constatnt_color.dart';
+
+class StatusClass extends StatelessWidget {
   final String imgpathvar;
-  statusclass({super.key, required this.imgpathvar});
+  StatusClass({super.key, required this.imgpathvar});
 
   // ignore: prefer_const_constructors
   final kInnerDecoration = BoxDecoration(
-    color: mobileBackgroundColor,
+    color: ConstantColors.mobileBackgroundColor,
     shape: BoxShape.circle,
   );
 
@@ -27,7 +28,7 @@ class statusclass extends StatelessWidget {
         GestureDetector(
             onTap: () {},
             child: Container(
-              padding: EdgeInsets.all(1),
+              padding: const EdgeInsets.all(1),
               height: 80,
               decoration: kGradientBoxDecoration,
               child: Padding(
@@ -36,10 +37,10 @@ class statusclass extends StatelessWidget {
                   decoration:
                       kInnerDecoration, // this height forces the container to be a circle
                   child: Container(
-              padding: EdgeInsets.all(3),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(3),
+              decoration:const BoxDecoration(
                 shape: BoxShape.circle,
-                color: mobileBackgroundColor,
+                color: ConstantColors.mobileBackgroundColor,
               ),
                child: CircleAvatar(
                 radius: 33,

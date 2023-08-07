@@ -9,6 +9,8 @@ import 'package:instagram/Screens/profile.dart';
 import 'package:instagram/Screens/search.dart';
 import 'package:instagram/shared/Colors.dart';
 
+import '../core/colors/constatnt_color.dart';
+
 class MobilDesign extends StatefulWidget {
   const MobilDesign({super.key});
 
@@ -36,24 +38,24 @@ class _MobilDesignState extends State<MobilDesign> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.home,
-                  color: activcolorr == 0 ? primaryColor : secondaryColor),
+                  color: activcolorr == 0 ? ConstantColors.kWhiteColor : ConstantColors.kGreyColor,),
               label: ""),
           BottomNavigationBarItem(
               icon: Icon(Icons.search,
-                  color: activcolorr == 1 ? primaryColor : secondaryColor),
+                  color: activcolorr == 1 ?  ConstantColors.kWhiteColor : ConstantColors.kGreyColor,),
               label: ""),
         
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_bag_outlined,
-                  color: activcolorr ==2? primaryColor : secondaryColor),
+                  color: activcolorr ==2?  ConstantColors.kWhiteColor : ConstantColors.kGreyColor,),
               label: ""),
                BottomNavigationBarItem(
               icon: Icon(Icons.movie_filter_outlined,
-                  color: activcolorr == 3 ? primaryColor : secondaryColor),
+                  color: activcolorr == 3 ?  ConstantColors.kWhiteColor : ConstantColors.kGreyColor,),
               label: ""),
           BottomNavigationBarItem(
               icon: Icon(Icons.person,
-                  color: activcolorr == 4? primaryColor : secondaryColor),
+                  color: activcolorr == 4?  ConstantColors.kWhiteColor : ConstantColors.kGreyColor,),
               label: ""),
         ],
 
@@ -69,7 +71,7 @@ class _MobilDesignState extends State<MobilDesign> {
           SearchScreen(),
           AddPostScreen(),
           FavouritScreen(),
-          profileScreen(),
+          ProfileScreen(),
         ],
       ),
 

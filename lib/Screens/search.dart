@@ -3,7 +3,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:instagram/shared/Colors.dart';
+
+import '../core/colors/constatnt_color.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -130,7 +131,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: mobileBackgroundColor,
+          backgroundColor: ConstantColors.mobileBackgroundColor,
 body: Container(
           decoration: BoxDecoration(
             color:  Color.fromARGB(255, 84, 78, 78),

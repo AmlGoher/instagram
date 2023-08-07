@@ -9,6 +9,8 @@ import 'package:instagram/Features/authentication/presentation/Screens/signup_sc
 import 'package:instagram/shared/Colors.dart';
 import 'package:instagram/shared/sharedTextFeild.dart';
 
+import '../../../../core/colors/constatnt_color.dart';
+import '../../../../core/constants/route_constants.dart';
 import '../../../../shared/snakebar.dart';
 import '../../domain/entities/user.dart';
 import '../Controller/bloc/auth_bloc.dart';
@@ -35,7 +37,7 @@ class LoginScreen extends StatelessWidget {
         } else if (state is SucceededAuthState) {
           // to get All old message once open the App
           BlocProvider.of<ChatBubbleScreenCubit>(context).receiveMessage();
-          Navigator.pushReplacementNamed(context, "HomeViewOrAuthView", arguments: _emailController.text);
+          Navigator.pushReplacementNamed(context,RoutesConstants.kHomeScreen, arguments: _emailController.text);
         } else if (state is ErrorAuthState) {
           SnackBarMessage()
               .showErrorSnackBar(message: state.message, context: context);
@@ -260,7 +262,7 @@ class LoginScreen extends StatelessWidget {
                               text: TextSpan(
                                 text: "Don't have an account?",
                                 style: const TextStyle(
-                                  color: mobileBackgroundColor,
+                                  color:ConstantColors.mobileBackgroundColor,
                                   fontSize: 15,
                                 ),
                                 children: <TextSpan>[
@@ -273,7 +275,7 @@ class LoginScreen extends StatelessWidget {
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () {
                                           Navigator.pushNamed(
-                                              context, 'signup');
+                                              context, RoutesConstants.kSignupScreen);
                                         }),
                                 ],
                               ),

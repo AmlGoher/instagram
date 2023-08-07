@@ -104,10 +104,6 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
-import 'package:instagram/shared/Colors.dart';
 
 class SharedTextFormFeild extends StatefulWidget {
   //  bool isValid=false;

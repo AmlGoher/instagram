@@ -79,7 +79,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         failureOrSuccess.fold(
           (failure) =>
               emit(ErrorAuthState(message: mapFailureToMessage(failure))),
-          (success) => emit(SucceededAuthState()),
+          (success) => emit(NotLoggedInState()),
         );
       } else if (event is ToggelPasswordVisibilityEvent) {
         if (!isPasswordVisible) {

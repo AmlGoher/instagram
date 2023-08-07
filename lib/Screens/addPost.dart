@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:instagram/shared/Colors.dart';
+
+import '../core/colors/constatnt_color.dart';
 
 // class AddPostScreen extends StatefulWidget {
 //   const AddPostScreen({super.key});
@@ -41,8 +42,8 @@ class AddPostScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget > tabs = <Widget >[Icon(Icons.edit, color:primaryColor, size: 24.0, ),
-     Icon(Icons.edit, color:primaryColor, size: 24.0),Icon(Icons.favorite, color:primaryColor, size: 24.0, ) ];
+    final  List<Widget > tabs =  <Widget >[const Icon(Icons.edit, color:ConstantColors.kWhiteColor, size: 24.0, ),
+    const Icon(Icons.edit, color:ConstantColors.kWhiteColor, size: 24.0),const Icon(Icons.favorite, color:ConstantColors.kWhiteColor, size: 24.0, ) ];
     return DefaultTabController(
       length: tabs.length, // This is the number of tabs.
       child: Scaffold(

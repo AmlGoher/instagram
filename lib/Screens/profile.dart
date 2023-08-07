@@ -4,24 +4,26 @@ import 'package:flutter/material.dart';
 import 'package:instagram/Screens/MainMobileDesign.dart';
 import 'package:instagram/shared/Colors.dart';
 
-class profileScreen extends StatefulWidget {
-  const profileScreen({super.key});
+import '../core/colors/constatnt_color.dart';
+
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
   @override
-  State<profileScreen> createState() => _profileScreenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _profileScreenState extends State<profileScreen> {
+class _ProfileScreenState extends State<ProfileScreen> {
   final List<Widget> tabs = <Widget>[
     Icon(
       Icons.grid_on_sharp,
-      color: primaryColor,
+      color: ConstantColors.kWhiteColor,
       size: 24.0,
     ),
-    Icon(Icons.movie_rounded, color: primaryColor, size: 24.0),
+    Icon(Icons.movie_rounded, color: ConstantColors.kWhiteColor, size: 24.0),
     Icon(
       Icons.person_pin_outlined,
-      color: primaryColor,
+      color: ConstantColors.kWhiteColor,
       size: 24.0,
     )
   ];
@@ -32,7 +34,7 @@ class _profileScreenState extends State<profileScreen> {
 
     return Scaffold(
   backgroundColor:
-          widthScreen > 600 ? webBackgroundColor : mobileBackgroundColor,
+          widthScreen > 600 ? ConstantColors.webBackgroundColor : ConstantColors.mobileBackgroundColor,
         //           appBar: AppBar(
         //   backgroundColor: mobileBackgroundColor,
         //   title: Text(
@@ -46,7 +48,7 @@ class _profileScreenState extends State<profileScreen> {
             : null,
              decoration: widthScreen > 600
             ? BoxDecoration(
-                color: mobileBackgroundColor,
+                color: ConstantColors.mobileBackgroundColor,
                 borderRadius: BorderRadius.circular(12))
             : null,
           child: Padding(
@@ -67,7 +69,7 @@ class _profileScreenState extends State<profileScreen> {
                                   NestedScrollView.sliverOverlapAbsorberHandleFor(
                                       context),
                               sliver: SliverAppBar(
-                                backgroundColor: mobileBackgroundColor,
+                                backgroundColor: ConstantColors.mobileBackgroundColor,
                                 flexibleSpace: Column(
                                   children: [
                                     Row(
@@ -81,7 +83,7 @@ class _profileScreenState extends State<profileScreen> {
                                                 padding: EdgeInsets.all(2),
                                                 decoration: BoxDecoration(
                                                   shape: BoxShape.circle,
-                                                  color: secondaryColor,
+                                                  color: ConstantColors.kGreyColor,
                                                 ),
                                                
                                                
@@ -102,7 +104,7 @@ class _profileScreenState extends State<profileScreen> {
                                               top: 82,
                                               child: Container(
                                                   decoration: BoxDecoration(
-                                                    color: primaryColor,
+                                                    color: ConstantColors.kWhiteColor,
                                                     shape: BoxShape.circle,
                                                   ),
                                                   child: Icon(
@@ -193,7 +195,7 @@ class _profileScreenState extends State<profileScreen> {
                                             onPressed: () {},
                                             icon: Icon(
                                               Icons.edit,
-                                              color: primaryColor,
+                                              color: ConstantColors.kWhiteColor,
                                               size: 24.0,
                                             ),
                                             label: Text(
@@ -205,7 +207,7 @@ class _profileScreenState extends State<profileScreen> {
                                                   Size(260, 54)),
                                               backgroundColor:
                                                   MaterialStateProperty.all(
-                                                      mobileBackgroundColor),
+                                                      ConstantColors.mobileBackgroundColor),
                                               padding: MaterialStateProperty.all(
                                                   EdgeInsets.all(12)),
                                               shape: MaterialStateProperty.all(
@@ -213,7 +215,7 @@ class _profileScreenState extends State<profileScreen> {
                                                       borderRadius:
                                                           BorderRadius.circular(8),
                                                       side: BorderSide(
-                                                          color: primaryColor))),
+                                                          color: ConstantColors.kWhiteColor))),
                                             ),
                                           ),
                                           SizedBox(
@@ -223,7 +225,7 @@ class _profileScreenState extends State<profileScreen> {
                                             onPressed: () {},
                                             icon: Icon(
                                               Icons.exit_to_app,
-                                              color: primaryColor,
+                                              color: ConstantColors.kWhiteColor,
                                               size: 24.0,
                                             ),
                                             label: Text(
@@ -244,7 +246,7 @@ class _profileScreenState extends State<profileScreen> {
                                                       borderRadius:
                                                           BorderRadius.circular(8),
                                                       side: BorderSide(
-                                                          color: primaryColor))),
+                                                          color: ConstantColors.kWhiteColor))),
                                             ),
                                           ),
                                         ],
@@ -253,7 +255,7 @@ class _profileScreenState extends State<profileScreen> {
                                     Divider(
                                       thickness: 0.5,
                                       indent: 0,
-                                      color: secondaryColor,
+                                      color: ConstantColors.kWhiteColor,
                                     ),
                                   ],
                                 ),
@@ -279,7 +281,8 @@ class _profileScreenState extends State<profileScreen> {
                               top: false,
                               bottom: false,
                               child: Container(
-                                color: mobileBackgroundColor,
+                                color: ConstantColors.mobileBackgroundColor
+                                ,
                                 child: Builder(
                                   // This Builder is needed to provide a BuildContext that is
                                   // "inside" the NestedScrollView, so that

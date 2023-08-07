@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram/shared/Colors.dart';
 
 import '../Features/authentication/data/model/user_model.dart';
+import '../core/colors/constatnt_color.dart';
 
 class CircleAvatarwidget extends StatelessWidget {
   final String circleProfileLink;
@@ -64,11 +65,11 @@ class PostWidget extends StatelessWidget {
                       children: [
                         Text(
                           puplishername,
-                          style: TextStyle(fontSize: 19, color: primaryColor),
+                          style: TextStyle(fontSize: 19, color: ConstantColors.kWhiteColor),
                         ),
                         Text(
                           "${isSponserd ? "Sponserd" : "NotSponserd"} ",
-                          style: TextStyle(fontSize: 14, color: primaryColor),
+                          style: TextStyle(fontSize: 14, color: ConstantColors.kWhiteColor),
                         ),
                       ],
                     ),
@@ -77,7 +78,7 @@ class PostWidget extends StatelessWidget {
               ),
               Icon(
                 Icons.more_horiz,
-                color: primaryColor,
+                color: ConstantColors.kWhiteColor,
                 size: 31,
               )
             ],
@@ -128,22 +129,22 @@ class PostWidget extends StatelessWidget {
               children: [
                 Text(
                   "36.752 views",
-                  style: TextStyle(fontSize: 19, color: primaryColor),
+style: TextStyle(fontSize: 19, color: ConstantColors.kWhiteColor  ),
                 ),
                 Text(
                   "$puplishername   Hello Hello",
-                  style: TextStyle(fontSize: 22, color: primaryColor),
+                  style: TextStyle(fontSize: 22, color: ConstantColors.kWhiteColor),
                 ),
                 TextButton(
                   style: ButtonStyle(
                       textStyle: MaterialStatePropertyAll(
-                          TextStyle(fontSize: 14, color: primaryColor))),
+                          TextStyle(fontSize: 14, color: ConstantColors.kWhiteColor))),
                   onPressed: () {},
                   child: Text("show Comments (35)"),
                 ),
                 Text(
                   "14 minutes ago",
-                  style: TextStyle(fontSize: 10, color: primaryColor),
+                  style: TextStyle(fontSize: 10, color: ConstantColors.kWhiteColor),
                 ),
                 Divider(
                   thickness: 1,

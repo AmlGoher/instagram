@@ -9,6 +9,8 @@ import 'package:instagram/Screens/profile.dart';
 import 'package:instagram/Screens/search.dart';
 import 'package:instagram/shared/Colors.dart';
 
+import '../core/colors/constatnt_color.dart';
+
 class WebDesign extends StatefulWidget {
   const WebDesign({super.key});
 
@@ -30,12 +32,12 @@ class _WebDesignState extends State<WebDesign> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: ConstantColors.mobileBackgroundColor,
         title: Row(
           children: [
             SvgPicture.asset(
               "assets/images/instagram.svg",
-              color: primaryColor,
+              color: ConstantColors.kWhiteColor,
               height: 35,
             ),
             SizedBox(
@@ -44,13 +46,13 @@ class _WebDesignState extends State<WebDesign> {
             IconButton(
               icon: Icon(
                 Icons.keyboard_arrow_down_sharp,
-                color: primaryColor,
+                color: ConstantColors.kWhiteColor,
               ),
               onPressed: () {
                 SimpleDialog(
                   contentPadding: EdgeInsets.all(8),
                   clipBehavior: Clip.antiAlias,
-                  backgroundColor: secondaryColor,
+                  backgroundColor: ConstantColors.kGreyColor,
                   children: <Widget>[
                     SimpleDialogOption(
                       onPressed: () {
@@ -62,11 +64,11 @@ class _WebDesignState extends State<WebDesign> {
                         children: [
                           Text(
                             'Follow',
-                            style: TextStyle(color: primaryColor),
+                            style: TextStyle(color: ConstantColors.kWhiteColor),
                           ),
                           Icon(
                             Icons.people_alt_outlined,
-                            color: primaryColor,
+                            color: ConstantColors.kWhiteColor,
                           )
                         ],
                       ),
@@ -81,11 +83,11 @@ class _WebDesignState extends State<WebDesign> {
                         children: [
                           Text(
                             'Favorite',
-                            style: TextStyle(color: primaryColor),
+                            style: TextStyle(color: ConstantColors.kWhiteColor),
                           ),
                           Icon(
                             Icons.star_border_outlined,
-                            color: primaryColor,
+                            color: ConstantColors.kWhiteColor,
                           )
                         ],
                       ),
@@ -106,7 +108,7 @@ class _WebDesignState extends State<WebDesign> {
                   icon: Icon(
                     Icons.home,
                     color:
-                        currentActiveColor == 0 ? primaryColor : secondaryColor,
+                        currentActiveColor == 0 ? ConstantColors.kWhiteColor : ConstantColors.kGreyColor,
                   )),
               IconButton(
                   onPressed: () {
@@ -116,7 +118,7 @@ class _WebDesignState extends State<WebDesign> {
                   icon: Icon(
                     Icons.search,
                     color:
-                        currentActiveColor == 1 ? primaryColor : secondaryColor,
+                        currentActiveColor == 1 ? ConstantColors.kWhiteColor : ConstantColors.kGreyColor,
                   )),
               IconButton(
                   onPressed: () {
@@ -125,7 +127,7 @@ class _WebDesignState extends State<WebDesign> {
                   icon: Icon(
                     Icons.linked_camera_outlined,
                     color:
-                        currentActiveColor == 2 ? primaryColor : secondaryColor,
+                        currentActiveColor == 2 ? ConstantColors.kWhiteColor : ConstantColors.kGreyColor,
                   )),
               SizedBox(
                 width: 8,
@@ -137,7 +139,7 @@ class _WebDesignState extends State<WebDesign> {
                   icon: Icon(
                     Icons.favorite_border,
                     color:
-                        currentActiveColor == 2 ? primaryColor : secondaryColor,
+                        currentActiveColor == 2 ?  ConstantColors.kWhiteColor : ConstantColors.kGreyColor,
                   )),
               IconButton(
                   onPressed: () {
@@ -146,7 +148,7 @@ class _WebDesignState extends State<WebDesign> {
                   icon: Icon(
                     Icons.person,
                     color:
-                        currentActiveColor ==4 ? primaryColor : secondaryColor,
+                        currentActiveColor ==4 ?  ConstantColors.kWhiteColor : ConstantColors.kGreyColor,
                   )),
               SizedBox(
                 width: 8,
@@ -158,7 +160,7 @@ class _WebDesignState extends State<WebDesign> {
                 child: SvgPicture.asset(
                   "assets/images/icons8-facebook-messenger.svg",
                   color:
-                      currentActiveColor == 4 ? primaryColor : secondaryColor,
+                      currentActiveColor == 4 ?  ConstantColors.kWhiteColor : ConstantColors.kGreyColor,
                 ),
               ),
               SizedBox(
@@ -178,7 +180,7 @@ class _WebDesignState extends State<WebDesign> {
           SearchScreen(),
           AddPostScreen(),
           FavouritScreen(),
-          profileScreen(),
+          ProfileScreen(),
         ],
       ),
     );

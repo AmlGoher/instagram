@@ -12,9 +12,9 @@ import 'package:instagram/Screens/chat_home_screen.dart';
 import 'package:instagram/Features/authentication/presentation/Screens/signup_screen.dart';
 import 'package:instagram/core/services/service_locator.dart' as di;
 import 'Features/authentication/presentation/Controller/bloc/auth_bloc.dart';
-import 'Features/authentication/presentation/Screens/home_or_login_screen.dart';
 import 'Screens/splash/splash_body.dart';
 import 'config/firebase_options.dart';
+import'core/constants/route_constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(),
         title: 'instagram',
-        home: SplashScreen(),
+        // home: SplashScreen(),
         
         // StreamBuilder(
         //   stream: FirebaseAuth.instance.authStateChanges(),
@@ -74,12 +74,14 @@ class MyApp extends StatelessWidget {
           // When navigating to the "/" route, build the FirstScreen widget.
           //'/': (context) => +const Responsive(),
           // When navigating to the "/second" route, build the SecondScreen widget.
-          'Home': (context) => const Home(),
-          "HomeViewOrAuthView":(context)=>const HomeViewOrAuthView(),
-          'login': (context) => LoginScreen(),
-          'signup': (context) => Signup(),
-          "chat_home_screen": (context) => const ChatHomeScreen(),
-          "chat_bubble_page": (context) => const ChatBubblePage()
+          RoutesConstants.kSplashScreen: (context) => SplashScreen(),
+          RoutesConstants.kHomeScreen: (context) => const Home(),
+          // "HomeViewOrAuthView":(context)=>const HomeViewOrAuthView(),
+          RoutesConstants.kLoginScreen: (context) => LoginScreen(),
+          RoutesConstants.kSignupScreen: (context) => Signup(),
+          RoutesConstants.kChatHomeScreen: (context) => const ChatHomeScreen(),
+          RoutesConstants.kChatBubbleScreen: (context) => const ChatBubbleScreen()
+       
         },
         //  Responsive(),
       ),

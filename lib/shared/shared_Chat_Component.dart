@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:instagram/core/colors/constatnt_color.dart';
+import 'package:instagram/core/constants/route_constants.dart';
 import 'package:instagram/shared/Colors.dart';
 
 import '../Features/authentication/data/model/user_model.dart';
@@ -21,7 +23,7 @@ class Chat_Component extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            Navigator.pushReplacementNamed(context, "chat_bubble_page",
+            Navigator.pushReplacementNamed(context, RoutesConstants.kChatBubbleScreen,
                 arguments: passedemail);
           },
           child: Container(
@@ -100,7 +102,7 @@ class Chat_Component extends StatelessWidget {
         ),
         Divider(
           thickness: 1,
-          color: secondaryColor,
+          color: ConstantColors.kGreyColor,
           indent: 8,
           endIndent: 8,
         ),

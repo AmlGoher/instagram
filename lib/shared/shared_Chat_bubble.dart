@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
+import 'package:instagram/core/colors/constatnt_color.dart';
 
 import 'package:instagram/model/message.dart';
 import 'package:instagram/shared/Colors.dart';
@@ -23,7 +24,7 @@ class Chatbubbles extends StatelessWidget {
         alignment: Alignment.centerLeft,
         child: Container(
           decoration: BoxDecoration(
-              color: secondaryColor,
+              color: ConstantColors.kGreyColor,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(36),
                   topRight: Radius.circular(36),
@@ -59,7 +60,7 @@ class Chatbubbles_freind extends StatelessWidget {
         alignment: Alignment.centerRight,
         child: Container(
           decoration: BoxDecoration(
-              color: blueColor,
+              color: ConstantColors.kBlueColor,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(36),
                   topRight: Radius.circular(36),

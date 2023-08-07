@@ -7,17 +7,18 @@ import 'package:instagram/shared/Colors.dart';
 import 'package:instagram/shared/shared_Chat_bubble.dart';
 
 import '../Cubits/chat_bubble_screen_Cubit/cubit/chat_bubble_screen_cubit.dart';
+import '../core/colors/constatnt_color.dart';
 
-class ChatBubblePage extends StatefulWidget {
-  const ChatBubblePage({
+class ChatBubbleScreen extends StatefulWidget {
+  const ChatBubbleScreen({
     super.key,
   });
 
   @override
-  State<ChatBubblePage> createState() => _ChatBubblePageState();
+  State<ChatBubbleScreen> createState() => _ChatBubbleScreenState();
 }
 
-class _ChatBubblePageState extends State<ChatBubblePage> {
+class _ChatBubbleScreenState extends State<ChatBubbleScreen> {
   TextEditingController messageController = TextEditingController();
 
   bool enabled = true;
@@ -160,7 +161,7 @@ class _ChatBubblePageState extends State<ChatBubblePage> {
                   ),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(32),
-                      borderSide: const BorderSide(color: primaryColor)),
+                      borderSide: const BorderSide(color:  ConstantColors.kWhiteColor )),
                 ),
               ),
             )

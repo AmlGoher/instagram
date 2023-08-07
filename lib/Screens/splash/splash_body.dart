@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:instagram/Features/authentication/presentation/Screens/home_or_login_screen.dart';
 import 'package:instagram/Screens/splash/splash_veiw.dart';
+import 'package:instagram/core/constants/route_constants.dart';
 
 import '../../Features/authentication/presentation/Controller/bloc/auth_bloc.dart';
+import '../../Features/authentication/presentation/Screens/login_screen.dart';
 import '../../core/constants/auth_Constants.dart';
- 
+import '../Home.dart';
+
 // ignore: must_be_immutable
 class SplashScreen extends StatefulWidget {
   bool isUserLoggedIn = false;
@@ -22,10 +25,39 @@ class _SplashScreenState extends State<SplashScreen>
   late AnimationController _controller;
   late Animation<double> _logoAnimation;
   late Animation<double> _textAnimation;
+
+  void homeOrLogin(BuildContext context) {
+    BlocBuilder<AuthBloc, AuthState>(
+      builder: (context, state) {
+        if (state is LoadingAuthState) {
+          return const Center(
+              child: CircularProgressIndicator(
+            color: Color.fromARGB(255, 100, 187, 34),
+          ));
+        } else if (state is LoggedInState) {
+          // Schedule navigation to occur after the widget tree has finished building
+          Future.delayed(Duration.zero, () {
+            Navigator.pushReplacementNamed(context,RoutesConstants.kHomeScreen);
+          });
+        } else if (state is NotLoggedInState) {
+          // Schedule navigation to occur after the widget tree has finished building
+          Future.delayed(Duration.zero, () {
+             Navigator.pushReplacementNamed(context,RoutesConstants.kLoginScreen);
+          });
+        }
+        return const Center(
+            child: CircularProgressIndicator(
+          color: Color.fromARGB(255, 199, 57, 57),
+        ));
+      },
+    );
+  }
+
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<AuthBloc>(context).add(GoToHomeViewOrLogInViewEvent());
+    // BlocProvider.of<AuthBloc>(context).add(GoToHomeViewOrLogInViewEvent());
+    homeOrLogin(context);
     // Create animation controller
     _controller = AnimationController(
       vsync: this,
@@ -46,10 +78,7 @@ class _SplashScreenState extends State<SplashScreen>
     _controller.forward();
     Timer(const Duration(seconds: AuthConstants.kSplashScreenDurationInSecond),
         () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomeViewOrAuthView()),
-      );
+        Navigator.pushReplacementNamed(context,RoutesConstants.kHomeScreen);
     });
   }
 

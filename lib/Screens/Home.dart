@@ -4,12 +4,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram/Features/authentication/presentation/Screens/login_screen.dart';
-import 'package:instagram/shared/Colors.dart';
+import 'package:instagram/core/constants/route_constants.dart';
 import 'package:instagram/shared/sharedProfileAvatar.dart';
-import 'package:instagram/shared/statusAvatar.dart';
+import 'package:instagram/shared/status_avatar.dart';
 
 import '../Features/authentication/presentation/Controller/bloc/auth_bloc.dart';
+import '../core/colors/constatnt_color.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -114,8 +114,8 @@ class _HomeState extends State<Home> {
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is SucceededAuthState) {
-          Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => LoginScreen()));
+          Navigator.pushReplacementNamed(
+           context,RoutesConstants.kHomeScreen   );
         }
       },
       builder: (context, state) {
@@ -127,16 +127,16 @@ class _HomeState extends State<Home> {
         }
         return Scaffold(
           backgroundColor:
-              widthScreen > 600 ? webBackgroundColor : mobileBackgroundColor,
+              widthScreen > 600 ? ConstantColors.webBackgroundColor : ConstantColors.mobileBackgroundColor,
           appBar: widthScreen > 600
               ? null
               : AppBar(
-                  backgroundColor: mobileBackgroundColor,
+                  backgroundColor: ConstantColors.mobileBackgroundColor,
                   title: Row(
                     children: [
                       SvgPicture.asset(
                         "assets/images/instagram.svg",
-                        color: primaryColor,
+                        color: ConstantColors.kWhiteColor,
                         height: 35,
                       ),
                       SizedBox(
@@ -145,7 +145,7 @@ class _HomeState extends State<Home> {
                       IconButton(
                         icon: Icon(
                           Icons.keyboard_arrow_down_sharp,
-                          color: primaryColor,
+                          color: ConstantColors.kWhiteColor,
                         ),
                         onPressed: () {
                           showDialog(
@@ -155,7 +155,7 @@ class _HomeState extends State<Home> {
                                   alignment: Alignment(-0.90, -0.88),
                                   contentPadding: EdgeInsets.all(8),
                                   clipBehavior: Clip.antiAlias,
-                                  backgroundColor: webBackgroundColor,
+                                  backgroundColor: ConstantColors.webBackgroundColor,
                                   children: <Widget>[
                                     SimpleDialogOption(
                                       onPressed: () {
@@ -169,11 +169,11 @@ class _HomeState extends State<Home> {
                                           Text(
                                             'Follow',
                                             style:
-                                                TextStyle(color: primaryColor),
+                                                TextStyle(color: ConstantColors.kWhiteColor),
                                           ),
                                           Icon(
                                             Icons.people_alt_outlined,
-                                            color: primaryColor,
+                                            color: ConstantColors.kWhiteColor,
                                           )
                                         ],
                                       ),
@@ -183,11 +183,7 @@ class _HomeState extends State<Home> {
                                         Navigator.pop(context);
                                         BlocProvider.of<AuthBloc>(context)
                                             .add(LogOutEvent());
-                                        Navigator.pushReplacement(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    LoginScreen()));
+      Navigator.pushReplacementNamed(context,RoutesConstants.kLoginScreen);
                                       },
                                       child: Row(
                                         mainAxisAlignment:
@@ -197,11 +193,11 @@ class _HomeState extends State<Home> {
                                           Text(
                                             'LogOut',
                                             style:
-                                                TextStyle(color: primaryColor),
+                                                TextStyle(color: ConstantColors.kWhiteColor),
                                           ),
                                           Icon(
                                             Icons.logout_outlined,
-                                            color: primaryColor,
+                                            color: ConstantColors.kWhiteColor,
                                           )
                                         ],
                                       ),
@@ -222,7 +218,7 @@ class _HomeState extends State<Home> {
                             },
                             icon: const Icon(
                               Icons.add_box_outlined,
-                              color: primaryColor,
+                              color: ConstantColors.kWhiteColor,
                             )),
                         SizedBox(
                           width: 8,
@@ -231,7 +227,7 @@ class _HomeState extends State<Home> {
                             onPressed: () {},
                             icon: const Icon(
                               Icons.favorite_border,
-                              color: primaryColor,
+                              color: ConstantColors.kWhiteColor,
                             )),
                         SizedBox(
                           width: 8,
@@ -239,12 +235,13 @@ class _HomeState extends State<Home> {
                         GestureDetector(
                           onTap: () {
                             Navigator.pushReplacementNamed(
-                                context, "chat_home_screen",
+                                context, RoutesConstants.kChatHomeScreen,
                                 arguments: passedemail);
                           },
                           child: SvgPicture.asset(
                             "assets/images/icons8-facebook-messenger.svg",
-                            color: primaryColor,
+                            color: ConstantColors.kWhiteColor
+                            ,
                           ),
                         ),
                         SizedBox(
@@ -260,12 +257,12 @@ class _HomeState extends State<Home> {
                 : null,
             decoration: widthScreen > 600
                 ? BoxDecoration(
-                    color: mobileBackgroundColor,
+                    color: ConstantColors.mobileBackgroundColor,
                     borderRadius: BorderRadius.circular(12))
                 : null,
             child: RefreshIndicator(
-              color: primaryColor,
-              backgroundColor: secondaryColor,
+              color: ConstantColors.kWhiteColor,
+              backgroundColor: ConstantColors.kGreyColor,
               onRefresh: () async {},
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
@@ -295,14 +292,15 @@ class _HomeState extends State<Home> {
 
                                       child: Container(
                                         decoration: BoxDecoration(
-                                          color: secondaryColor,
+                                          color: ConstantColors.kGreyColor,
                                           shape: BoxShape.circle,
                                         ), // this height forces the container to be a circle
                                         child: Padding(
                                           padding: const EdgeInsets.all(10.0),
                                           child: Image.asset(
                                             "assets/images/avatar.png",
-                                            color: primaryColor,
+                                            color: ConstantColors.kWhiteColor
+                                            ,
                                           ),
                                         ),
                                       ),
@@ -316,7 +314,7 @@ class _HomeState extends State<Home> {
                                 child: Container(
                                     padding: EdgeInsets.all(1),
                                     decoration: BoxDecoration(
-                                      color: mobileBackgroundColor,
+                                      color: ConstantColors.mobileBackgroundColor,
                                       shape: BoxShape.circle,
                                     ),
                                     child: Icon(
@@ -326,7 +324,7 @@ class _HomeState extends State<Home> {
                               )
                             ]),
                             ...Status.map((item) =>
-                                statusclass(imgpathvar: item.imgpath)).toList(),
+                                StatusClass(imgpathvar: item.imgpath)).toList(),
                           ],
                         ),
                       ),
